@@ -18,9 +18,16 @@ def get_strength_data():
     """
     Get strength workout data from user
     """
-    print('You can enter your workout data here.')
+    print('You can enter your workout information here.')
+    print('Sets, reps and weight needs to be written as numbers, and weight is counted in Kilograms.')
 
+    data_str = input('Enter your information here')
+    print(f'The information you provided is {data_str}')
 
+get_strength_data()
+print(get_strength_data)
+
+"""
 def start():
     strength_workout_app = StrengthWorkoutApp()
 
@@ -33,7 +40,7 @@ def start():
         choice = input('Choose an option in the menu!')
 
         if choice == '1':
-            exercice = input('Enter exercise'):
+            exercise = input('Enter exercise'):
             sets = input('Enter amount of sets'):
             reps = input('Enter amount of reps'):
             weight = input('Enter the weight in Kilogram'):
@@ -43,11 +50,15 @@ def start():
 
         elif choice == '2':
             print_separator()
-                print('Thanks for today, see you another time. Goodbye')
+                print('Thanks for today, see you another time, goodbye and have a nice day!')
 
         else:
             print_separator(
                 print('Option not possible, please press number 1 or 2')
             )
             
+if __name__ = '__start__':
+    main()
 
+print(start)
+"""
