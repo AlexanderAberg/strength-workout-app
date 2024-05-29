@@ -13,11 +13,11 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('strength_workout_app')
 
 
-
+"""
 def get_strength_data():
-    """
+  """  """
     Get strength workout data from user
-    """
+    """"""
     print('You can enter your workout information here.')
     print('Sets, reps and weight needs to be written as numbers, and weight is counted in Kilograms.')
 
@@ -26,7 +26,9 @@ def get_strength_data():
 
 get_strength_data()
 print(get_strength_data)
-
+"""
+"""
+The start screen/menu
 """
 def start():
     strength_workout_app = StrengthWorkoutApp()
@@ -38,7 +40,9 @@ def start():
         print('1. Workout Manager\n2. Exit')
 
         choice = input('Choose an option in the menu!')
-
+            """
+            The choices
+            """
         if choice == '1':
             exercise = input('Enter exercise'):
             sets = input('Enter amount of sets'):
@@ -61,4 +65,3 @@ if __name__ = '__start__':
     main()
 
 print(start)
-"""
