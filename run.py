@@ -18,7 +18,7 @@ The start menu below, the spreadsheet and creds.json above.
 
 
 def start():
-
+    collected_data = []
     while True:
         print('Welcome to the Strength Workout App')
         print('1. Workout Manager\n2. Exit')
@@ -39,10 +39,14 @@ def start():
                     Separate to give error message and
                     have loop repeat after wrong answer.
                     """
-                    sets = int(input('Enter amount of sets '))
-                    reps = int(input('Enter amount of reps '))
-                    weight = int(input('Enter the weight in Kilogram '))
-
+                    sets = abs(int(input('Enter amount of sets ')))
+                    reps = abs(int(input('Enter amount of reps ')))
+                    weight = abs(int(input('Enter the weight in Kilogram ')))
+                    """
+                    Have int for whole numbers and numbers only allowed,
+                    included abs instead of make negative forbidden
+                    to make it more user friendly.
+                    """
                     print('1. Add another exercise\n2. Exit!')
                     choice = input('Choose an option in the menu! ')
                     data = SHEET.worksheet("strength").get_all_values()
@@ -76,10 +80,7 @@ def start():
 
         else:
             print('Option not possible, please press number 1 or 2')
-
-
-if __name__ == '__main__':
-    start()
+    return collected_data
 
 
 def update_strength_worksheet(data):
@@ -92,4 +93,6 @@ def update_strength_worksheet(data):
     print('Strength worksheet updated\n')
 
 
-workout_data = [int(data) for data in start]
+if __name__ == '__main__':
+    workout_data = start()
+    update_strength_worksheet(workout_data)
