@@ -51,12 +51,11 @@ def start():
                     if choice == 1:
                         continue
                     elif choice == '2':
-                        print(
-                            'Thanks for today, see you another time, have a nice day!')
+                        print('Thanks for today and have a nice day!')
                         break
 
                     else:
-                        print('Option not possible, please press number 1 or 2')
+                        print('Option not possible, please press nr 1 or 2')
 
                 except ValueError:
                     print('You have to add a number')
@@ -64,7 +63,7 @@ def start():
             strength.extend([exercise, sets, reps, weight])
             data.append(strength)
             print(data)
-            print(f'Exercise added')
+            print('Exercise added')
 
             """
             Choice 1 for exercise above and for exit below including
@@ -81,3 +80,16 @@ def start():
 
 if __name__ == '__main__':
     start()
+
+
+def update_strength_worksheet(data):
+    """
+    Add information to the worksheet, add new row with information"
+    """
+    print('Adding exercises to worksheet')
+    strength_worksheet = SHEET.worksheet('strength')
+    strength_worksheet.append_row(data)
+    print('Strength worksheet updated\n')
+
+
+workout_data = [int(data) for data in start]
