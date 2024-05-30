@@ -36,12 +36,22 @@ def start():
                 try:
 
                     """
-                    Separate to give error message and 
+                    Separate to give error message and
                     have loop repeat after wrong answer.
                     """
                     sets = int(input('Enter amount of sets '))
                     reps = int(input('Enter amount of reps '))
                     weight = int(input('Enter the weight in Kilogram '))
+
+                    print('1. Add another exercise\n2. Exit!')
+                    choice = input('Choose an option in the menu! ')
+                    data = SHEET.worksheet("strength").get_all_values()
+                    print(data)
+                    strength = []
+                    if choice == 1:
+                        continue
+                    if choice == 2:
+                        break
 
                 except ValueError:
                     print('You have to add a number')
