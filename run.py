@@ -26,15 +26,27 @@ def start():
         The choices related to the manager above,
         while the choices for the exercises below
         """
-        choice = input('Choose an option in the menu!')
+        choice = input('Choose an option in the menu! ')
         data = SHEET.worksheet("strength").get_all_values()
         print(data)
         strength = []
         if choice == '1':
-            exercise = input('Enter exercise ')
-            sets = int(input('Enter amount of sets '))
-            reps = int(input('Enter amount of reps '))
-            weight = int(input('Enter the weight in Kilogram '))
+            while True:
+                exercise = input('Enter exercise ')
+                try:
+
+                    """
+                    Separate to give error message and have loop repeat after wrong answer.
+                    """
+                    sets = int(input('Enter amount of sets '))
+                    reps = int(input('Enter amount of reps '))
+                    weight = int(input('Enter the weight in Kilogram '))
+                    break
+
+                except ValueError:
+                    print('You have to add a number')
+                    continue
+
             strength.extend([exercise, sets, reps, weight])
             data.append(strength)
             print(data)
@@ -47,6 +59,7 @@ def start():
 
         elif choice == '2':
             print('Thanks for today, see you another time, have a nice day!')
+            break
 
         else:
             print('Option not possible, please press number 1 or 2')
