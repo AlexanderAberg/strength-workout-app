@@ -32,9 +32,9 @@ def start():
         strength = []
         if choice == '1':
             exercise = input('Enter exercise ')
-            sets = input('Enter amount of sets ')
-            reps = input('Enter amount of reps ')
-            weight = input('Enter the weight in Kilogram ')
+            sets = int(input('Enter amount of sets '))
+            reps = int(input('Enter amount of reps '))
+            weight = int(input('Enter the weight in Kilogram '))
             strength.extend([exercise, sets, reps, weight])
             data.append(strength)
             print(data)
