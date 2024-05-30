@@ -36,16 +36,15 @@ def start():
                 try:
 
                     """
-                    Separate to give error message and have loop repeat after wrong answer.
+                    Separate to give error message and 
+                    have loop repeat after wrong answer.
                     """
                     sets = int(input('Enter amount of sets '))
                     reps = int(input('Enter amount of reps '))
                     weight = int(input('Enter the weight in Kilogram '))
-                    break
 
                 except ValueError:
                     print('You have to add a number')
-                    continue
 
             strength.extend([exercise, sets, reps, weight])
             data.append(strength)
