@@ -50,8 +50,13 @@ def start():
                     strength = []
                     if choice == 1:
                         continue
-                    if choice == 2:
+                    elif choice == '2':
+                        print(
+                            'Thanks for today, see you another time, have a nice day!')
                         break
+
+                    else:
+                        print('Option not possible, please press number 1 or 2')
 
                 except ValueError:
                     print('You have to add a number')
