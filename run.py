@@ -12,13 +12,20 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('strength_workout_app')
 
+"""
+The start menu below, the spreadsheet and creds.json above.
+"""
+
 
 def start():
 
     while True:
         print('Welcome to the Strength Workout App')
         print('1. Workout Manager\n2. Exit')
-
+        """
+        The choices related to the manager above,
+        while the choices for the exercises below
+        """
         choice = input('Choose an option in the menu!')
         data = SHEET.worksheet("strength").get_all_values()
         print(data)
@@ -32,6 +39,11 @@ def start():
             data.append(strength)
             print(data)
             print(f'Exercise added')
+
+            """
+            Choice 1 for exercise above and for exit below including
+            information that only option 1 and 2 is possible
+            """
 
         elif choice == '2':
             print('Thanks for today, see you another time, have a nice day!')
