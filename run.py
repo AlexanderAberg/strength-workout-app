@@ -18,7 +18,7 @@ The start menu below, the spreadsheet and creds.json above.
 
 
 def start():
-    collected_data = []
+    strength_data = []
     while True:
         print('Welcome to the Strength Workout App')
         print('1. Workout Manager\n2. Exit')
@@ -32,7 +32,12 @@ def start():
         strength = []
         if choice == '1':
             while True:
-                exercise = input('Enter exercise ')
+                try:
+                    exercise = input('Enter exercise ')
+
+                except ValueError:
+                    print('You have to add a value')
+
                 try:
 
                     """
@@ -80,7 +85,7 @@ def start():
 
         else:
             print('Option not possible, please press number 1 or 2')
-    return collected_data
+    return strength_data
 
 
 def update_strength_worksheet(data):
