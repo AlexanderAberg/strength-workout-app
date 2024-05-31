@@ -142,6 +142,7 @@ from tutor, it is my code but they pointed and big issues was related to indenta
 - Education Tool- From the people at Codeinstitute and W3 School
 - Diagram - From Lucid Chart 
 - Mockup - Generated at amiresponsive 
+- Worksheet - From Google Sheets
 - GitHub for storing the project and to get the deployed version
 - Gitpod for project development
 - Heroku to deploy the project
