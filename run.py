@@ -83,7 +83,7 @@ def start():
     return collected_data
 
 
-def update_strength_worksheet(data):
+def update_strength_worksheet(data, worksheet):
     """
     Add information to the worksheet, add new row with information"
     """
@@ -94,5 +94,6 @@ def update_strength_worksheet(data):
 
 
 if __name__ == '__main__':
-    workout_data = start()
-    update_strength_worksheet(workout_data)
+    data = start()
+    collected_data = start()
+    update_strength_worksheet(collected_data)
