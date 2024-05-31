@@ -51,8 +51,6 @@ def start():
                 """
                 workout.extend([exercise, sets, reps, weight])
                 strength.append(workout)
-                print(workout)
-                print(strength)
                 continue
 
             except ValueError:
