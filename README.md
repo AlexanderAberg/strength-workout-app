@@ -1,7 +1,7 @@
 # Strength Workout App
 
 The Strength Workout App is an application to register your workout data.
-You will register the exercises, sets, reps and weight in kg to the app, which will transfer to a Google Sheet.
+You will register the exercises, sets, reps and weight in kg to the app, which will transfer to a Google Sheet when you exit the app.
 
 <img src="assets/images/amiresponsive.png" alt='Responsive Screens'>
 
@@ -30,7 +30,7 @@ The Business Goals are:
 - To make it buildable with new features in the future.
 
 ### User Stories
-1. As a strenght trainer I want to be able to keep track of my workout data.
+1. As a strength trainer I want to be able to keep track of my workout data.
 0. I expect it to be easy to add and retrieve data
 0. I want to have an app that will get new featues in the future, so it will get even better.
 
@@ -43,83 +43,93 @@ The Business Goals are:
 <img src="assets/images/heroku_controlpanel.png" alt='Looks on everything'>
 
 
+### Thoughts behind my choices
+
+- I wanted it to be easy with few choices, 1 to add workout and 2 to exit the app.
+- I wanted all 4 inputs to be connected to each other and therefore appear when previous is filled in.
+- I decided that Exercise should only have limitation on amount of characters and that I don't want it empty, so a value always exist even if
+it's just a space, it is still a real value, I didn't want to limit any kind of characters because some people might want to have a number or a
+special sign, even a space might be something you want but I want the user to atleast be active in choosing the space.
+- For sets, reps and weight I am forcing a number, because it must be a number even if it's 0, for example weight 0 can be your bodyweight, while
+0 reps could be that you can't complete a whole rep and 0 sets that you don't want to count it as a set, I don't think minus is possible on the
+other hand in strenght training so therefore all minus numbers will become plus in the worksheet.
+- The Google Sheets is used so you can store your data.
+
+
+### Google Sheets
+
+- Data is uploaded to Google Sheets https://docs.google.com/spreadsheets/d/1I0pcPtlLThLbg1K50S_jZvfNzl-dlxeSda_ch4YiTQI/edit#gid=0 
+- I added data for 2 exercises so it is possible to see data before it is testet by Code Institute, so I would think that it will be more exercises
+added in the future by external parties.
+
+<img src="assets/images/google_sheers.png" alt='Google Sheets'>
+
 
 ### Features Left to Implement
 
 - Would like to make it possible to register and login in the future, instead of being for one user only today.
 - Would like to insert date functions in the future where you have workouts registered on a specific day.
 - Should be possible to take out statistic for a specfic day in the future.
+- Want to be able to delete data from the sheet in the future.
 
 ## Testing 
 
 - You can use the app in Chrome, Firefox and Edge without errors.
+- I done a lot of testing and everything is working as it should, even if I try to cause errors.
+- Tested so you can't have empty string in exercise or over 40 characters, also tested so that you can only put numbers in sets, reps and weight.
 
 
 ### Validator Testing 
 
-- HTML
-  - No errors were returned when passing through the official [W3C validator](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Falexanderaberg.github.io%2Fbattleship%2F#cl177c14).
-- CSS
-  - No errors but 1 warning were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Falexanderaberg.github.io%2Fbattleship%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=sv) it got validated as CSS Stage 3 +SVG, the warning I ignore because I want the color and background-color to be the same, because I don't want the text to be seen before clicking a square!
-- JS
-  - No errors was returned for JS, but 16 warnings, 8 undefined cariables and 3 unused variables when passing through the official [(Jigsaw) validator](https://jshint.com/) I will need to work on them in the future.
+- Python
+  - No errors were returned when passing through the official [PEP8 Python Validator](https://pep8ci.herokuapp.com/#).
 
+<img src="assets/images/validator.png" alt='Validator Python'>
 
-<img src="assets/images/validator-html.png" alt='Validator html'>
-<img src="assets/images/validator-css.png" alt='Validator css'>
-<img src="assets/images/validator-js.png" alt='Validator js'>
 
 ### Unfixed and fixed Bugs
 
-- Have some unresolved code in JS and some commented out code in all three languages.
-- With the help of the validator did I notice some small issues in the js that I fixed.
-- The page is working, but because of unsolved issues I haven't been able to implement more.
-- I got help with some bugs by mentor, slack and tutor.
-
-### Quality Score through Google Devtools Lighthouse
-
-- Lighthouse testing on Chrome Incognito to prevent cookies and background cache to slow down.
-
-<img src="assets/images/lighthouse-phone.png" alt='Lighthouse  Phone'>
-<img src="assets/images/lighthouse-desktop.png" alt='Lighthouse  Computer'>
-
+- Don't have any unresolved bugs.
+- I got help with some bugs and mostly suggestions by mentor and tutor, especially the worksheet with mentor and to make limitations for exercise variable
+from tutor, it is my code but they pointed and big issues was related to indentation and that I add too much code to solve issues, so they ask me to remove code.
 
 ## Deployment
 
-- The site was deployed to GitHub pages. The steps to deploy are as follows: 
-  - In the GitHub repository, navigate to the Settings tab 
-  - From the source section drop-down menu, select the Master Branch
-  - Once the master branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment. 
-  - You can either copy the link for Code or Open in a new repository or see the live version under Deployment to the right under github-pages.
-  - In GitHub you can open every seperate file including html. css. images and even favicons and see the folder structure.
-  - It is possible to check the commit history in github-pages under Deployment to the right
+- The app was deployed to GitHub pages and Heroku. The steps to deploy are as follows: 
+  - Copy the repository from GitHub to your own GitHub to have it on your GitHub.
+  - Create a new app in Heroku, name it and choose your region before pushing button to create app.
+  - In the next page press settings, scroll down to Config Vars and pust the button, here you add CREDS in KEY and copy and paste everything inside creds.json to Value, 
+  you also add another var and put in PORT in KEY and 8000 in VALUE.
+  - You will now push Add buildpack just below Config Vars, there you choose Python and press the button to add it, you will get back to settings where you
+  press button to add buildpack again to add another buildpack and choose nodejs and add it also, make sure to have Python above nodejs in settings by moving it if needed.
+  - Now you go up to switch to Deploy in the tab and here you press the GitHub icon with the GitHub text to connect to GitHub and after that press Connect to GitHub button below.
+  - You will get a name choice where you choose your GitHub and search for the correct respository and then press connect.
+  - You will now be able to press Enable Automatic Deploys to make changes come automatically so do that, but press also Deploy Branch to get access already after about 30 seconds,
+  after the 30 seconds give or take depending on your internet speed and computer you can press view and now you have access to use the app.
+  - Now you will also be able to find the deployment in GitHub including all commits that was done after the deployment
 
-  - Link to the live version of the project can be found here: - https://alexanderaberg.github.io/battleship/ and to the gitHub page here : https://github.com/AlexanderAberg/battleship
+  - Link to the live version of the project can be found here: - https://strength-workout-app-d0e61c3ce59a.herokuapp.com/ and to the gitHub page here : https://github.com/AlexanderAberg/strength-workout-app
 
 
 ## Credits 
 
-Favicon from  <a href="https://www.freepik.com/icon/battleship_7445202#fromView=search&page=1&position=24&uuid=1fab3cff-7977-4766-8a3e-e89762b82c90">'Icon by Umeicon'</a> and generated through https://favicon.io/favicon-converter/ 
-
-- Boards are created with the help of tutorial from W3schools, https://www.w3schools.com/css/css_grid.asp https://www.w3schools.com/css/css_grid_container.asp and https://www.w3schools.com/css/css_grid_item.asp.
-- The Tutor Roman helped me with the grid, it is mainly my own code but with his help.
-- Got help from Alex C on our Slack Team Group with the ships and also got some other suggestions on slack.
-- My mentor Rory Patrick has been much help with suggestion and ideas.
-- Template for this README is taken from my previous project Different Coloured Tea that in term got its template from Love Running and my mentors P1.
-- Got inspired and used/reused some code from https://codepen.io/patrycja-b/pen/EWRywX and https://www.youtube.com/watch?v=Ubh_k18sX4E&ab_channel=CodewithAniaKub%C3%B3w 
-- Got some inspiration from perplexity AI but the AI couldn't really help me with solving my issues and the swedish slack team also gave me similiar suggestions for the handleClick function but neither did help me sort that out.
+- The Tutor Holly helped me with limiting exercise variable, it is mainly my own code but with her help.
+- My mentor Rory Patrick has been much help with suggestion and ideas, especially regarding my worksheet.
+- Template for this README is taken from my previous project Battleship, that got it from my project Different Coloured Tea that in term got its template from Love Running and my mentors P1.
+- Got inspired and used/reused some code from https://www.youtube.com/watch?v=Sx3Kw0RtmAE&ab_channel=CodeNust by Code Nust.
+- Got some inspiration from perplexity AI related to while loops, but didn't use any code from it because it didn't work for me.
 
 
 ### Content 
 
-- I know since before how you are supposed to play the game, so the information and thought behind it is from how I used to play it as a child.
-- Html and css was taken from the Code Institute education, big part from Love Running, Coders Coffeehouse and their Tutors, some parts related to the grid was taken from W3schools 3 part gridsection at this page https://www.w3schools.com/css/css_grid.asp and the following 2 pages.
-- JavaScript was taken from the Code Institute education and the project Love Maths, but also used/got inspired by code from https://codepen.io/patrycja-b/pen/EWRywX and https://www.youtube.com/watch?v=Ubh_k18sX4E&ab_channel=CodewithAniaKub%C3%B3w 
+- I made the app so it is easy to add the content and you will also get feedback of your data, both old and new.
+- Python was taken from the Code Institute education and the project Love Sandwiches, but also used/got inspired by code from  https://www.youtube.com/watch?v=Sx3Kw0RtmAE&ab_channel=CodeNust 
+
 
 ### Media
 
-- Favicon is from https://www.freepik.com/icon/battleship_7445202#fromView=search&page=1&position=24&uuid=1fab3cff-7977-4766-8a3e-e89762b82c90 and converted from https://favicon.io/favicon-converter/ 
 - Responsive mockup from https://ui.dev/amiresponsive?url=https://alexanderaberg.github.io/battleship/ 
+- Google Sheet is from https://docs.google.com/spreadsheets/d/1I0pcPtlLThLbg1K50S_jZvfNzl-dlxeSda_ch4YiTQI/edit#gid=0
 
 ### Diagram
 
@@ -129,15 +139,9 @@ Favicon from  <a href="https://www.freepik.com/icon/battleship_7445202#fromView=
 
 ### Technologies Used
 
-- HTML - For how the website with the pages is built and planned 
-- CSS - For all the styling
-- JS - For the game to function as a game including its logic
-- Fonts - From Google Fonts
 - Education Tool- From the people at Codeinstitute and W3 School
-- Wireframe - From Balsamiq 
-- Favicons - Icon from freepik and converted with Favicon.io
+- Diagram - From Lucid Chart 
 - Mockup - Generated at amiresponsive 
-- Colours I wanted to have colours that fit the old military style and therefore is pretty boring, I used Coolors to create my palette but did experiement by myself for my choices 
-- Google Devtools to check responsiveness and to check Lighthouse for Accessibility
-- GitHub for storing the project and deploying it
+- GitHub for storing the project and to get the deployed version
 - Gitpod for project development
+- Heroku to deploy the project

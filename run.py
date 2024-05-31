@@ -22,7 +22,7 @@ def start():
     while True:
         workout = []
         print('Welcome to the Strength Workout App')
-        print('1. Workout Manager\n2. Exit')
+        print('1. Add Strength Workout\n2. Exit')
         """
         The choices related to the manager above,
         while the choices for the exercises below
@@ -36,6 +36,9 @@ def start():
                         """
                         Separate to give error message and
                         have loop repeat after wrong answer.
+                        Above also have code to limit number of characters
+                        for the exercise, I don't think the variables below
+                        needs it, considering that it is only numbers.
                         """
                         sets = abs(int(input('Enter amount of sets ')))
                         reps = abs(int(input('Enter amount of reps ')))
@@ -84,6 +87,9 @@ def update_strength_worksheet(data):
     print('Strength worksheet updated\n')
 
 
+"""
+To make the app work and update worksheet
+"""
 if __name__ == '__main__':
     workout_data = start()
     update_strength_worksheet(workout_data)
