@@ -18,8 +18,9 @@ The start menu below, the spreadsheet and creds.json above.
 
 
 def start():
-    strength_data = []
+    strength = []
     while True:
+        workout = []
         print('Welcome to the Strength Workout App')
         print('1. Workout Manager\n2. Exit')
         """
@@ -27,51 +28,36 @@ def start():
         while the choices for the exercises below
         """
         choice = input('Choose an option in the menu! \n')
-        data = SHEET.worksheet("strength").get_all_values()
-        print(data)
-        strength = []
         if choice == '1':
-            while True:
-                try:
-                    exercise = input('Enter exercise ')
+            try:
+                exercise = input('Enter exercise ')
 
-                except ValueError:
-                    print('You have to add a value')
+            except ValueError:
+                print('You have to add a value')
 
-                try:
+            try:
 
-                    """
-                    Separate to give error message and
-                    have loop repeat after wrong answer.
-                    """
-                    sets = abs(int(input('Enter amount of sets ')))
-                    reps = abs(int(input('Enter amount of reps ')))
-                    weight = abs(int(input('Enter the weight in Kilogram ')))
-                    """
-                    Have int for whole numbers and numbers only allowed,
-                    included abs instead of make negative forbidden
-                    to make it more user friendly.
-                    """
-                    print('1. Add another exercise\n2. Exit!')
-                    choice = input('Choose an option in the menu! ')
-                    data = SHEET.worksheet("strength").get_all_values()
-                    print(data)
-                    strength = []
-                    if choice == 1:
-                        continue
-                    elif choice == '2':
-                        print('Thanks for today and have a nice day!')
-                        break
+                """
+                Separate to give error message and
+                have loop repeat after wrong answer.
+                """
+                sets = abs(int(input('Enter amount of sets ')))
+                reps = abs(int(input('Enter amount of reps ')))
+                weight = abs(int(input('Enter the weight in Kilogram ')))
+                """
+                Have int for whole numbers and numbers only allowed,
+                included abs instead of make negative forbidden
+                to make it more user friendly.
+                """
+                workout.extend([exercise, sets, reps, weight])
+                strength.append(workout)
+                print(workout)
+                print(strength)
+                continue
 
-                    else:
-                        print('Option not possible, please press nr 1 or 2')
+            except ValueError:
+                print('You have to add a number')
 
-                except ValueError:
-                    print('You have to add a number')
-
-            strength.extend([exercise, sets, reps, weight])
-            data.append(strength)
-            print(data)
             print('Exercise added')
 
             """
@@ -85,7 +71,7 @@ def start():
 
         else:
             print('Option not possible, please press number 1 or 2')
-    return strength_data
+    return strength
 
 
 def update_strength_worksheet(data):
@@ -93,8 +79,9 @@ def update_strength_worksheet(data):
     Add information to the worksheet, add new row with information"
     """
     print('Adding exercises to worksheet')
+    print(data)
     strength_worksheet = SHEET.worksheet('strength')
-    strength_worksheet.append_row(data)
+    strength_worksheet.append_rows(data)
     print('Strength worksheet updated\n')
 
 
