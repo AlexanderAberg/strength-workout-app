@@ -62,7 +62,7 @@ other hand in strenght training so therefore all minus numbers will become plus 
 - I added data for 2 exercises so it is possible to see data before it is testet by Code Institute, so I would think that it will be more exercises
 added in the future by external parties.
 
-<img src="assets/images/google_sheers.png" alt='Google Sheets'>
+<img src="assets/images/google_sheets.png" alt='Google Sheets'>
 
 
 ### Features Left to Implement
