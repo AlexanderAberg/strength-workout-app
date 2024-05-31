@@ -26,7 +26,7 @@ def start():
         The choices related to the manager above,
         while the choices for the exercises below
         """
-        choice = input('Choose an option in the menu! ')
+        choice = input('Choose an option in the menu! \n')
         data = SHEET.worksheet("strength").get_all_values()
         print(data)
         strength = []
