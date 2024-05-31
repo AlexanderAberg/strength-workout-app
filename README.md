@@ -37,29 +37,22 @@ The Business Goals are:
 
 ### Existing Features
 
-- __Page__
-  - There is only one page with everything in it to make it simple for the user.
+- __Heroku__
+  - The app is uploaded on Code Institutes control panel at Heroku, there is only one screen that will be filled up.
 
-<img src="assets/images/phone-image.png" alt='Looks on phone'>
-
-- __Board__
-  - You can see a 10x10 board that you can play on, it will be coloured red if you hit a ship and black if you miss.
-  <img src="assets/images/board.png" alt='board with 2 squares attacked, one of them with a ship'>
+<img src="assets/images/heroku_controlpanel.png" alt='Looks on everything'>
 
 
 
 ### Features Left to Implement
 
-- There is many features that is currently commented out because they are not done yet.
-- You will in the future be able to have a second board where you can place your own ships that the enemy will attack.
-- In the future you will have normal sized ships instead of the current 1 square ships.
-- In the future there will be a victory board where you an see wins and defeats plus have a start button so you don't need to refresh the page to restart the game.
-- Will be a ships board where you can see ships to place and also where you will be able to se sunken ships for both you and the enemy.
-- In the future shouldn't be possible to continue shooting when all 5 ships are destroyed.
+- Would like to make it possible to register and login in the future, instead of being for one user only today.
+- Would like to insert date functions in the future where you have workouts registered on a specific day.
+- Should be possible to take out statistic for a specfic day in the future.
 
 ## Testing 
 
-- You can play the game in Chrome, Firefox, Edge and on iPhone in the same way without any other errors.
+- You can use the app in Chrome, Firefox and Edge without errors.
 
 
 ### Validator Testing 
@@ -128,13 +121,11 @@ Favicon from  <a href="https://www.freepik.com/icon/battleship_7445202#fromView=
 - Favicon is from https://www.freepik.com/icon/battleship_7445202#fromView=search&page=1&position=24&uuid=1fab3cff-7977-4766-8a3e-e89762b82c90 and converted from https://favicon.io/favicon-converter/ 
 - Responsive mockup from https://ui.dev/amiresponsive?url=https://alexanderaberg.github.io/battleship/ 
 
-### Wireframe
+### Diagram
 
-- Used Balsamiq for Wireframe, the Wireframe has some content that is missing in the project because of lack of time, see also Features Left to Implement in this README, also the wireframe is not to scale especially computer.
+- Used Lucid Chart for a diagram of how the app is supposed to be built up.
 
-<img src="assets/images/wireframe-phone.png" alt='Wireframe for Phone'>
-<img src="assets/images/wireframe-tablet.png" alt='Wireframe for Tablet'>
-<img src="assets/images/wireframe-computer.png" alt='Wireframe for Computer'>
+<img src="assets/images/lucid-chart.png" alt='Lucid Chart'>
 
 ### Technologies Used
 
