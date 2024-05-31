@@ -31,32 +31,33 @@ def start():
         if choice == '1':
             try:
                 exercise = input('Enter exercise ')
+                if exercise:
+                    if len(exercise) < 40:
+                        """
+                        Separate to give error message and
+                        have loop repeat after wrong answer.
+                        """
+                        sets = abs(int(input('Enter amount of sets ')))
+                        reps = abs(int(input('Enter amount of reps ')))
+                        weight = abs(
+                            int(input('Enter the weight in Kilogram ')))
+                        """
+                        Have int for whole numbers and numbers only allowed,
+                        included abs instead of make negative forbidden
+                        to make it more user friendly.
+                        """
+                        workout.extend([exercise, sets, reps, weight])
+                        strength.append(workout)
+                        continue
+
+                    else:
+                        print('Value too long')
+
+                else:
+                    print('enter a value')
 
             except ValueError:
                 print('You have to add a value')
-
-            try:
-
-                """
-                Separate to give error message and
-                have loop repeat after wrong answer.
-                """
-                sets = abs(int(input('Enter amount of sets ')))
-                reps = abs(int(input('Enter amount of reps ')))
-                weight = abs(int(input('Enter the weight in Kilogram ')))
-                """
-                Have int for whole numbers and numbers only allowed,
-                included abs instead of make negative forbidden
-                to make it more user friendly.
-                """
-                workout.extend([exercise, sets, reps, weight])
-                strength.append(workout)
-                continue
-
-            except ValueError:
-                print('You have to add a number')
-
-            print('Exercise added')
 
             """
             Choice 1 for exercise above and for exit below including
